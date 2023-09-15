@@ -28,9 +28,11 @@
 <script>
 import { defineComponent, ref } from 'vue'
 import { api } from 'src/boot/axios'
+import { useRouter } from 'vue-router'
 
 export default defineComponent({
   setup() {
+    const router = useRouter()
     const loading = ref(false)
     const title = ref("")
     const content = ref("")
@@ -68,6 +70,7 @@ export default defineComponent({
           content.value = ''
           category.value = ''
         }
+        router.push('/all')
         console.log(response.data)
 
       } catch (e) {
@@ -92,6 +95,7 @@ export default defineComponent({
           content.value = ''
           category.value = ''
         }
+        router.push('/all')
         console.log(response.data)
 
       } catch (e) {
